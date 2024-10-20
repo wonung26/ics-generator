@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICS Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            100: '#333333',
+                            200: '#2d2d2d',
+                            300: '#272727',
+                            400: '#202020',
+                            500: '#1a1a1a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+<body class="bg-dark-500 text-gray-300 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md mx-auto bg-dark-300 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
         <div class="p-8">
-            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1">ICS Generator</div>
-            <h1 class="block mt-1 text-lg leading-tight font-medium text-black">Create ICS files easily</h1>
-            <p class="mt-2 text-gray-500">Enter event details to generate an ICS file.</p>
+            <div class="uppercase tracking-wide text-sm text-blue-400 font-semibold mb-1">ICS Generator</div>
+            <h1 class="block mt-1 text-lg leading-tight font-medium text-white">Create ICS files easily</h1>
+            <p class="mt-2 text-gray-400">Enter event details to generate an ICS file.</p>
             
             <div class="mt-4">
-                <label for="eventTitle" class="block text-sm font-medium text-gray-700">Event Title (optional)</label>
-                <input type="text" id="eventTitle" placeholder="Default title for all events" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <label for="eventTitle" class="block text-sm font-medium text-gray-300">Event Title (optional)</label>
+                <input type="text" id="eventTitle" placeholder="Default title for all events" class="mt-1 block w-full rounded-md bg-dark-100 border-dark-100 text-white placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
             </div>
 
             <div class="mt-4">
-                <label for="eventInput" class="block text-sm font-medium text-gray-700">Event Details</label>
-                <p class="text-sm text-gray-500">Enter one event per line in formats like:</p>
-                <ul class="list-disc list-inside text-sm text-gray-500 mb-2">
+                <label for="eventInput" class="block text-sm font-medium text-gray-300">Event Details</label>
+                <p class="text-sm text-gray-400">Enter one event per line in formats like:</p>
+                <ul class="list-disc list-inside text-sm text-gray-400 mb-2">
                     <li>2024-11-26 13:00 to 14:30</li>
                     <li>26.11.2024 von 13:00 bis 14:30</li>
                     <li>November 26, 2024 from 1:00 PM to 2:30 PM</li>
                 </ul>
-                <textarea id="eventInput" rows="5" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="2024-10-23 14:00 to 15:30
+                <textarea id="eventInput" rows="5" class="mt-1 block w-full rounded-md bg-dark-100 border-dark-100 text-white placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" placeholder="2024-10-23 14:00 to 15:30
 26.11.2024 von 13:00 bis 14:30
 December 3, 2024 from 12:30 PM to 2:00 PM"></textarea>
             </div>
 
             <div class="mt-4 flex space-x-2">
-                <button onclick="generateICS()" class="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button onclick="generateICS()" class="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     Generate ICS
                 </button>
                 <button onclick="downloadICS()" id="downloadButton" class="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" style="display: none;">
@@ -40,8 +57,8 @@ December 3, 2024 from 12:30 PM to 2:00 PM"></textarea>
                 </button>
             </div>
 
-            <div id="output" class="mt-4 p-4 bg-gray-100 rounded-md overflow-x-auto" style="display: none;">
-                <pre class="text-sm text-gray-800"></pre>
+            <div id="output" class="mt-4 p-4 bg-dark-200 rounded-md overflow-x-auto" style="display: none;">
+                <pre class="text-sm text-gray-300"></pre>
             </div>
         </div>
     </div>
